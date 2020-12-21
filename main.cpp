@@ -1,3 +1,13 @@
+/*
+Арапов С.А.
+М8О-208Б-19
+github.com/ogrocket/oop_exercise_05
+Вариант 17:
+    Контейнер: Очередь
+    Фигура: Треугольник
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include "Queue.hpp"
@@ -7,7 +17,7 @@ void menu();
 
 int main(){
     Queue<Triangle<int>> queue;
-    auto Print = [](Node<Triangle<int>> T){ std::cout << T << std::endl; };
+    auto Print = [](Node<Triangle<int>> T){ std::cout << T << std::endl;};
     menu();
 
     int variant;
@@ -21,7 +31,8 @@ int main(){
                 std::cin >> l;
                 std::cout << "Enter the height of the triangle: " << std::endl;
                 std::cin >> h;
-                Triangle<int> T(h ,l);
+                Triangle<int> T;
+                T.Input(h, l);
                 std::cout << "Triangle successfully added\n";
                 queue.Push(T);
                 break;
@@ -32,7 +43,8 @@ int main(){
                 std::cin >> l;
                 std::cout << "Enter the height of the triangle: " << std::endl;
                 std::cin >> h;
-                Triangle<int> T(h ,l);
+                Triangle<int> T;
+                T.Input(h, l);
                 std::cout << "Enter the index: " << std::endl;
                 std::cin >> index;
                 try {
@@ -56,6 +68,7 @@ int main(){
             case 3:{
                 queue.Pop();
                 std::cout << "Triangle successfully deleted\n";
+                break;
             }
 
             case 4:{
@@ -115,3 +128,5 @@ void menu() {
     std::cout << "5. Print triangles from the collection\n";
     std::cout << "6. Print the number of triangles whose area is less than the specified\n";
 }
+
+
